@@ -60,7 +60,7 @@ export TOKEN=your_github_token
 
 ## Write a concurrency test
 
-- Writing concurrency tests is simple!
+- Writing concurrency tests is simple, and you can find examples in the `src/test/java` directory.
 ```java
 public class TestClass {
   ...
