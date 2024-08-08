@@ -27,22 +27,6 @@ repositories {
 }
 ```
 
-- `settings.gradle.kts`
-```kotlin
-pluginManagement {
-    repositories {
-        gradlePluginPortal()
-        maven {
-            url = uri("https://maven.pkg.github.com/cmu-pasta/fray")
-            credentials {
-                username = extra["gpr.user"] as String? ?: System.getenv("USERNAME")
-                password = extra["gpr.key"] as String? ?: System.getenv("TOKEN")
-            }
-        }
-    }
-}
-```
-
 - Github credentials are required to access the repository. 
 You can create a personal access token from [Github](https://github.com/settings/tokens/new) and with 
   `read:packages` permission selected. 
