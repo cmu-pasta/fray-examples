@@ -12,6 +12,7 @@ plugins {
 
 repositories {
     mavenCentral()
+    mavenLocal()
     maven {
         url = uri("https://maven.pkg.github.com/cmu-pasta/fray")
         credentials {

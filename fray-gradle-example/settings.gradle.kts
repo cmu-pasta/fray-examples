@@ -5,4 +5,11 @@
  * For more detailed information on multi-project builds, please refer to https://docs.gradle.org/8.9/userguide/multi_project_builds.html in the Gradle documentation.
  */
 
+pluginManagement {
+  repositories {
+    mavenLocal()
+    gradlePluginPortal()
+  }
+}
+
 rootProject.name = "fray-examples"
