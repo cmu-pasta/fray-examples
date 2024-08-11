@@ -21,7 +21,7 @@ Please follow the official [guidance](https://docs.github.com/en/packages/workin
 <plugin>
     <groupId>org.pastalab.fray.maven</groupId>
     <artifactId>fray-maven-plugin</artifactId>
-    <version>0.1.1</version>
+    <version>0.1.2</version>
     <executions>
         <execution>
             <id>prepare-fray</id>
