@@ -8,13 +8,12 @@ import org.gradle.internal.impldep.org.junit.platform.launcher.EngineFilter.incl
  */
 plugins {
     id("java")
-    id("org.pastalab.fray.gradle") version "0.1.9"
+    id("org.pastalab.fray.gradle") version "0.1.10"
 }
 
 
 repositories {
     mavenCentral()
-    mavenLocal()
 }
 
 dependencies {
