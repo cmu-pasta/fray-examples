@@ -8,24 +8,13 @@ import org.gradle.internal.impldep.org.junit.platform.launcher.EngineFilter.incl
  */
 plugins {
     id("java")
-    id("org.pastalab.fray.gradle") version "0.1.6-SNAPSHOT"
+    id("org.pastalab.fray.gradle") version "0.1.9"
 }
 
 
 repositories {
     mavenCentral()
     mavenLocal()
-    maven {
-        url = uri("https://maven.pkg.github.com/cmu-pasta/fray")
-        credentials {
-            username = extra["gpr.user"] as String? ?: System.getenv("USERNAME")
-            password = extra["gpr.key"] as String? ?: System.getenv("TOKEN")
-        }
-    }
-}
-
-fray {
-    version = "0.1.6-SNAPSHOT"
 }
 
 dependencies {
@@ -41,4 +30,3 @@ afterEvaluate {
         })
     }
 }
-
