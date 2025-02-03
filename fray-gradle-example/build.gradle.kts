@@ -22,6 +22,10 @@ dependencies {
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
+tasks.test {
+    useJUnitPlatform()
+}
+
 afterEvaluate {
     tasks.named<Test>("frayTest") {
         useJUnitPlatform({
