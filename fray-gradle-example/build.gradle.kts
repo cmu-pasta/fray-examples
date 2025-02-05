@@ -8,7 +8,7 @@ import org.gradle.internal.impldep.org.junit.platform.launcher.EngineFilter.incl
  */
 plugins {
     id("java")
-    id("org.pastalab.fray.gradle") version "0.1.10"
+    id("org.pastalab.fray.gradle") version "0.2.0"
 }
 
 
@@ -24,12 +24,4 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
-}
-
-afterEvaluate {
-    tasks.named<Test>("frayTest") {
-        useJUnitPlatform({
-            includeEngines("junit-jupiter")
-        })
-    }
 }
