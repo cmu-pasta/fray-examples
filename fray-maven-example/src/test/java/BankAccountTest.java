@@ -1,11 +1,14 @@
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.pastalab.fray.core.scheduler.POSScheduler;
-import org.pastalab.fray.junit.annotations.ConcurrencyTest;
+import org.pastalab.fray.junit.junit5.FrayTestExtension;
+import org.pastalab.fray.junit.junit5.annotations.ConcurrencyTest;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@ExtendWith(FrayTestExtension.class)
 public class BankAccountTest {
     public static class BankAccount {
         private AtomicInteger balance = new AtomicInteger();
@@ -34,8 +37,8 @@ public class BankAccountTest {
 
 
     @ConcurrencyTest(
-            scheduler = POSScheduler.class,
-            iteration = 1000
+            iterations = 1000,
+            scheduler = POSScheduler.class
     )
     public void testBankAccount() {
         BankAccount account1 = new BankAccount(1000);
