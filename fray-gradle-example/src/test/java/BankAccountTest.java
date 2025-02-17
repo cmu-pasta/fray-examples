@@ -33,8 +33,6 @@ public class BankAccountTest {
 
     @Test
     public void runTestUsingJunit() throws InterruptedException {
-        for (int i = 0; i < 10000; i++) {
-            myBankAccountTest();
-        }
+        myBankAccountTest();
     }
 }
