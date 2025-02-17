@@ -25,7 +25,7 @@ public class BankAccountTest {
 
 
     @ConcurrencyTest(
-            iterations = 1000
+            replay = "/Users/aoli/repos/fray-examples/fray-gradle-example/build/fray/fray-report/recording/"
     )
     public void runTestUsingFray() throws InterruptedException {
         myBankAccountTest();
