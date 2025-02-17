@@ -9,7 +9,7 @@
 
 ```java
 plugins {
-    id("org.pastalab.fray.gradle") version "0.1.9"
+    id("org.pastalab.fray.gradle") version "0.2.5"
 }
 
 ```
