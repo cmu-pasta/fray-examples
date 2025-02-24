@@ -3,21 +3,17 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.pastalab.fray.junit.junit5.FrayTestExtension;
 import org.pastalab.fray.junit.junit5.annotations.ConcurrencyTest;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 @ExtendWith(FrayTestExtension.class)
 public class BankAccountTest {
 
     public static class BankAccount {
-        public int balance = 1000;
+        public AtomicInteger balance = new AtomicInteger(1000);
         public void withdraw(int amount) {
-            if (getBalance() >= amount) {
-                setBalance(getBalance() - amount);
+            if (balance.get() >= amount) {
+                balance.set(balance.get() - amount);
             }
-        }
-        public synchronized int getBalance() {
-            return balance;
-        }
-        public synchronized void setBalance(int balance) {
-            this.balance = balance;
         }
     }
 
@@ -25,12 +21,12 @@ public class BankAccountTest {
         BankAccount account = new BankAccount();
         Thread t1 = new Thread(() -> {
             account.withdraw(500);
-            assert(account.getBalance() > 0);
-        });
+            assert(account.balance.get() > 0);
+        }, "withdraw-1");
         Thread t2 = new Thread(() -> {
             account.withdraw(700);
-            assert(account.getBalance() > 0);
-        });
+            assert(account.balance.get() > 0);
+        }, "withdraw-2");
         t1.start();
         t2.start();
         t1.join();
