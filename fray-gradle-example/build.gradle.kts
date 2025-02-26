@@ -8,7 +8,7 @@ import org.gradle.internal.impldep.org.junit.platform.launcher.EngineFilter.incl
  */
 plugins {
     id("java")
-    id("org.pastalab.fray.gradle") version "0.2.6-SNAPSHOT"
+    id("org.pastalab.fray.gradle") version "0.2.7"
 }
 
 
