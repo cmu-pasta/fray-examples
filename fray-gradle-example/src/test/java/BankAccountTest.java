@@ -1,3 +1,4 @@
+import org.jetbrains.kotlinx.lincheck.LincheckKt;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.pastalab.fray.junit.junit5.FrayTestExtension;
@@ -42,4 +43,17 @@ public class BankAccountTest {
     public void runTestUsingJunit() throws InterruptedException {
         myBankAccountTest();
     }
+
+    @Test
+    public void runTestWithLincheck() {
+        LincheckKt.runConcurrentTest(100000, () -> {
+            try {
+                myBankAccountTest();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            return null;
+        });
+    }
+
 }
