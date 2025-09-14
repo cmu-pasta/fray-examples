@@ -8,13 +8,16 @@ import org.gradle.internal.impldep.org.junit.platform.launcher.EngineFilter.incl
  */
 plugins {
     id("java")
-    id("org.pastalab.fray.gradle") version "0.2.7"
+    id("org.pastalab.fray.gradle") version "0.6.6"
 }
 
+fray {
+    jdkPath = "/nix/store/qp5fr5jdh5mj7aaijcin14kwq6kyjbz7-openjdk-23.0.2+7"
+}
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(21))
+        languageVersion.set(JavaLanguageVersion.of(23))
     }
 }
 
@@ -31,4 +34,5 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+    dependsOn("frayTest")
 }
